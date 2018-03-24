@@ -4,94 +4,27 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+<!--    W3CSS-->
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 <!-- Bootstrap core CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
 
     <!-- Custom styles for this template -->
-
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-a  wesome/4.7.0/css/font-awesome.min.css">
+    
     <style>
-        * {
-            border-radius: 0px !important;
-        }
-
-        img {
-            padding: 0;
-            display: block;
-            margin: 0 auto;
-            max-height: 100%;
-            width: 100%;
-            
-        }
-
-        /*
-  Bootstrap Carousel Fade Transition (for Bootstrap 3.3.x)
-  CSS from:       http://codepen.io/transportedman/pen/NPWRGq
-  and:            http://stackoverflow.com/questions/18548731/bootstrap-3-carousel-fading-to-new-slide-instead-of-sliding-to-new-slide
-  Inspired from:  http://codepen.io/Rowno/pen/Afykb 
-*/
-
-        .carousel-fade .carousel-inner .item {
-            opacity: 0;
-            transition-property: opacity;
-        }
-
-        .carousel-fade .carousel-inner .active {
-            opacity: 1;
-        }
-
-        .carousel-fade .carousel-inner .active.left,
-        .carousel-fade .carousel-inner .active.right {
-            left: 0;
-            opacity: 0;
-            z-index: 1;
-        }
-
-        .carousel-fade .carousel-inner .next.left,
-        .carousel-fade .carousel-inner .prev.right {
-            opacity: 1;
-        }
-
-        .carousel-fade .carousel-control {
-            z-index: 2;
-        }
-
-        /*
-  WHAT IS NEW IN 3.3: "Added transforms to improve carousel performance in modern browsers."
-  Need to override the 3.3 new styles for modern browsers & apply opacity
-*/
-
-        @media all and (transform-3d),
-        (-webkit-transform-3d) {
-            .carousel-fade .carousel-inner>.item.next,
-            .carousel-fade .carousel-inner>.item.active.right {
-                opacity: 0;
-                -webkit-transform: translate3d(0, 0, 0);
-                transform: translate3d(0, 0, 0);
-            }
-            .carousel-fade .carousel-inner>.item.prev,
-            .carousel-fade .carousel-inner>.item.active.left {
-                opacity: 0;
-                -webkit-transform: translate3d(0, 0, 0);
-                transform: translate3d(0, 0, 0);
-            }
-            .carousel-fade .carousel-inner>.item.next.left,
-            .carousel-fade .carousel-inner>.item.prev.right,
-            .carousel-fade .carousel-inner>.item.active {
-                opacity: 1;
-                -webkit-transform: translate3d(0, 0, 0);
-                transform: translate3d(0, 0, 0);
-            }
-        }
-
+      
     </style>
+    
 </head>
 
 <body>
-
-    <?php include("navbar.php"); ?>
+        
+<?php include("navbar.php"); ?>
 
     <div class="container-fluid" style="margin-top: 50px; ">
         <div id="myCarousel" class="carousel slide carousel-fade" data-ride="carousel" data-interval="2100">
