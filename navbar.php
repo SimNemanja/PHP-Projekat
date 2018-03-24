@@ -1,8 +1,12 @@
+
 <div class="navbar-N">
-    <a href="http://www.nsimic.com/">NS</a>
+    
+    <a href="http://www.nsimic.com/">Nemanja SIMIC</a>
     <a href="/cv.php">CV</a>
+    <a href="/gallery.php?nom=Dessins">Dessins</a>
+    
     <div class="dropdown-N">
-        <button class="dropbtn-N">Albums
+        <button class="dropbtn-N">Photos
       <i class="fa fa-caret-down"></i>
     </button>
         <div class="dropdown-N-content">
@@ -16,7 +20,7 @@
             <a href="/gallery.php?nom=08_naples">Naples</a>
             <a href="/gallery.php?nom=09_nantes">Nantes</a>
             <a href="/gallery.php?nom=10_Saint Malo">Saint Malo</a>
-
         </div>
     </div>
+    
 </div>
