@@ -38,7 +38,9 @@
  if(isset($_POST['submit']))
  {
     extract($_POST); 
-    $to = "nemanja.painter@gmail.com"; 
+     if ($_POST['email'] == 'milena') { $to = "cica.simic8.42@gmail.com"; }
+         elseif ($_POST['email'] == 'tata') { $to = "negosin@gmail.com"; }
+             else { $to = "nemanja.painter@gmail.com"; }
     $from = $_POST['email'];
     $subject = "new mail";
     $message =  $_POST['sujet'];              

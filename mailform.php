@@ -82,8 +82,9 @@
                     <label for="artiste">Vous désirez écrire à</label>
                     <select id="artist" name="artist">
                         
-      <option value="nemanja">Nemanja SIMIC</option>
-      <option value="milena">Milena SIMIC</option>
+<option value="nemanja">Nemanja SIMIC</option>
+<option value="milena">Milena SIMIC</option>
+<option value="tata">Dobrivoje SIMIC</option>
                         
     </select>
 
