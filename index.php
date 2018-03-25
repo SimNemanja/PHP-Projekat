@@ -12,8 +12,8 @@
 
 <!-- Custom styles for this template -->
 <link rel="stylesheet" href="css/main.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-a  wesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto"> 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
 <!-- Custom styles for this template -->
     
 <style>
@@ -69,8 +69,6 @@
                             <div class="w3-container">
                                 <h3><strong>Architect</strong></h3>
                                 <p><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i>Paris, France</p>
-                                <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i><a href="mailto:nemanja.painter@gmail.com">nemanja.painter@gmail.com</a></p>
-                                <p><i class="fa fa-address-card-o fa-fw w3-margin-right w3-large w3-text-teal"></i><a href="http://www.nsimic.com" title="link to my homepage">www.nsimic.com</a></p>
                                 <hr>
 
                                 <p class="w3-large"><b><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-teal"></i>Compétences</b></p>
