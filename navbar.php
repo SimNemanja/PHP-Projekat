@@ -7,14 +7,15 @@
         <button class="dropbtn-N">Dessins
       <i class="fa fa-caret-down"></i>
     </button>
-        <div class="dropdown-N-content">
-            <a href="/gallery.php?nom=D2_Dessins">Dessins</a>
-            <a href="/gallery.php?nom=D1_Dessins Rome">Rome</a>
+        
+<div class="dropdown-N-content">
+    <a href="/gallery.php?nom=D2_Dessins">Dessins</a>
+    <a href="/gallery.php?nom=D1_Dessins Rome">Rome</a>
+    <a href="/gallery.php?nom=01_Color">Couleur</a>
+    <a href="/gallery.php?nom=01_3D">Modèles 3D</a>
         </div>
     </div>
 
-    <a href="/gallery.php?nom=01_Color">Tableaux</a>
-    <a href="/gallery.php?nom=01_3D">Modèles 3D</a>
     <a href="#">Photographie</a>
     
     <div class="dropdown-N">
