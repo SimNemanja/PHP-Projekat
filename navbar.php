@@ -9,10 +9,10 @@
     </button>
         
 <div class="dropdown-N-content">
-    <a href="/gallery.php?nom=D2_Dessins">Dessins</a>
-    <a href="/gallery.php?nom=D1_Dessins Rome">Rome</a>
-    <a href="/gallery.php?nom=01_Color">Couleur</a>
-    <a href="/gallery.php?nom=01_3D">Modèles 3D</a>
+    <a href="gallery.php?nom=D2_Dessins">Dessins</a>
+    <a href="gallery.php?nom=D1_Dessins Rome">Rome</a>
+    <a href="gallery.php?nom=01_Color">Couleur</a>
+    <a href="gallery.php?nom=01_3D">Modèles 3D</a>
         </div>
     </div>
 
@@ -23,11 +23,11 @@
       <i class="fa fa-caret-down"></i>
     </button>
         <div class="dropdown-N-content">
-            <a href="/gallery.php?nom=04_normandy">Normandie</a>
-            <a href="/gallery.php?nom=05_chantilly">Chantilly</a>
-            <a href="/gallery.php?nom=06_strasbourg">Strasbourg</a>
-            <a href="/gallery.php?nom=09_nantes">Nantes</a>
-            <a href="/gallery.php?nom=10_Saint Malo">Saint Malo</a>
+            <a href="gallery.php?nom=04_normandy">Normandie</a>
+            <a href="gallery.php?nom=05_chantilly">Chantilly</a>
+            <a href="gallery.php?nom=06_strasbourg">Strasbourg</a>
+            <a href="gallery.php?nom=09_nantes">Nantes</a>
+            <a href="gallery.php?nom=10_Saint Malo">Saint Malo</a>
         </div>
     </div>
 
@@ -36,8 +36,8 @@
       <i class="fa fa-caret-down"></i>
     </button>
         <div class="dropdown-N-content">
-            <a href="/gallery.php?nom=01_rome">Rome</a>
-            <a href="/gallery.php?nom=08_naples">Naples</a>
+            <a href="gallery.php?nom=01_rome">Rome</a>
+            <a href="gallery.php?nom=08_naples">Naples</a>
         </div>
     </div>
 
@@ -46,8 +46,8 @@
       <i class="fa fa-caret-down"></i>
     </button>
         <div class="dropdown-N-content">
-            <a href="/gallery.php?nom=03_belgium">Belgique</a>
-            <a href="/gallery.php?nom=07_amsterdam">Amsterdam</a>
+            <a href="gallery.php?nom=03_belgium">Belgique</a>
+            <a href="gallery.php?nom=07_amsterdam">Amsterdam</a>
         </div>
     </div>
 

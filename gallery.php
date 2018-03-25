@@ -12,11 +12,11 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
 
 <!-- Custom styles for this template -->
-<link rel="stylesheet" href="css/main.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" media="screen" href="css/lightbox.css">
 <link rel="stylesheet" href="css/justifiedGallery.css" />
+<link rel="stylesheet" href="css/NSgallery.css">
 
     <title>Gallery</title>
 
