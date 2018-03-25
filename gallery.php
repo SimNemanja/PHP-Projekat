@@ -18,7 +18,7 @@
 <link rel="stylesheet" href="css/justifiedGallery.css" />
 <link rel="stylesheet" href="css/NSgallery.css">
 
-    <title>Gallery</title>
+    <title>Galerie</title>
 
     <!--
     
