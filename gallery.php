@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
 <!-- Bootstrap core CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
 <!-- Custom styles for this template -->
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
@@ -19,6 +19,26 @@
 <link rel="stylesheet" href="css/NSgallery.css">
 
     <title>Galerie</title>
+
+    <?php
+
+//    $Gallery = $_GET[id];
+    $Gallery = 10;
+
+    // Connexion à la base de données
+    try
+
+    {
+//                $bdd = new PDO('mysql:host=nsimiccovusimic.mysql.db;dbname=nsimiccovusimic;charset=utf8', 'nsimiccovusimic', 'Cvecara1');
+        $bdd = new PDO('mysql:host=localhost;dbname=phpgallery;charset=utf8', 'root', '');
+    }
+
+    catch(Exception $e)
+
+    {
+        die('Erreur : '.$e->getMessage());
+    }
+    ?>
 
     <!--
     
@@ -79,10 +99,59 @@
             lightbox_display('photos/' . $folder_path . '/', 'lightbox[images]');  
             
             ?>
-
-
-
         </div>
+
+
+
+
+        <?php
+        // Récupération des 10 derniers messages
+        $reponse = $bdd->query('SELECT pseudo, comment FROM comment WHERE gallery = 10 ORDER BY ID DESC LIMIT 0, 10');
+
+//        while ($donnees = $reponse->fetch())
+//        {
+//            echo '<p><strong>' . htmlspecialchars($donnees['pseudo']) . '</strong> : ' . htmlspecialchars($donnees['comment']) . '</p>';
+//        }
+
+                 // Affichage de chaque message (toutes les données sont protégées par htmlspecialchars)
+
+                 echo '<div class="panel-group">';
+
+                 while ($donnees = $reponse->fetch())
+                 {
+                     echo '<div class="panel panel-default"><div class="panel-heading">' .
+                         htmlspecialchars($donnees['pseudo']) . ' : </div><div class="panel-body"> ' .
+                         htmlspecialchars($donnees['comment']) . '</div></div>';
+                 }
+
+
+
+
+
+                 $reponse->closeCursor();
+
+                 echo '<div/>';
+        ?>
+
+        <div class="container">
+            <h2>Panel Group</h2>
+            <p>The panel-group class clears the bottom-margin. Try to remove the class and see what happens.</p>
+            <div class="panel-group">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Panel Header</div>
+                    <div class="panel-body">Panel Content</div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">Panel Header</div>
+                    <div class="panel-body">Panel Content</div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">Panel Header</div>
+                    <div class="panel-body">Panel Content</div>
+                </div>
+            </div>
+        </div>
+
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -107,38 +176,6 @@
             });
         });
     </script>
-
-    <?php
-    // Connexion à la base de données
-    try
-
-    {
-        $bdd = new PDO('mysql:host=nsimiccovusimic.mysql.db;dbname=nsimiccovusimic;charset=utf8', 'nsimiccovusimic', 'Cvecara1');
-    }
-
-    catch(Exception $e)
-
-    {
-        die('Erreur : '.$e->getMessage());
-    }
-
-    // Récupération des 10 derniers messages
-    $reponse = $bdd->query('SELECT Name, Comment FROM comment ORDER BY ID DESC LIMIT 0, 10');
-
-    // Affichage de chaque message (toutes les données sont protégées par htmlspecialchars)
-
-    while ($donnees = $reponse->fetch())
-    {
-        echo '<p><strong>' . htmlspecialchars($donnees['Name']) . '</strong> : ' . htmlspecialchars($donnees['Comment']) . '</p>';
-    }
-
-    $reponse->closeCursor();
-
-    ?>
-
-</body>
-
-</html>
 
 </body>
 
