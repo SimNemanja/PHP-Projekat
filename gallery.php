@@ -29,8 +29,8 @@
     try
 
     {
-//                $bdd = new PDO('mysql:host=nsimiccovusimic.mysql.db;dbname=nsimiccovusimic;charset=utf8', 'nsimiccovusimic', 'Cvecara1');
-        $bdd = new PDO('mysql:host=localhost;dbname=phpgallery;charset=utf8', 'root', '');
+                $bdd = new PDO('mysql:host=nsimiccovusimic.mysql.db;dbname=nsimiccovusimic;charset=utf8', 'nsimiccovusimic', 'Cvecara1');
+//        $bdd = new PDO('mysql:host=localhost;dbname=phpgallery;charset=utf8', 'root', '');
     }
 
     catch(Exception $e)
@@ -106,12 +106,7 @@
 
         <?php
         // Récupération des 10 derniers messages
-        $reponse = $bdd->query('SELECT pseudo, comment FROM comment WHERE gallery = 10 ORDER BY ID DESC LIMIT 0, 10');
-
-//        while ($donnees = $reponse->fetch())
-//        {
-//            echo '<p><strong>' . htmlspecialchars($donnees['pseudo']) . '</strong> : ' . htmlspecialchars($donnees['comment']) . '</p>';
-//        }
+        $reponse = $bdd->query('SELECT pseudo, dateofcomment, comment FROM comment WHERE gallery = 10 ORDER BY ID DESC LIMIT 0, 10');
 
                  // Affichage de chaque message (toutes les données sont protégées par htmlspecialchars)
 
@@ -120,37 +115,16 @@
                  while ($donnees = $reponse->fetch())
                  {
                      echo '<div class="panel panel-default"><div class="panel-heading">' .
-                         htmlspecialchars($donnees['pseudo']) . ' : </div><div class="panel-body"> ' .
+                         htmlspecialchars($donnees['pseudo']) . ' : <div style="float:right;">' . $donnees['dateofcomment'] .
+                         ' </div></div><div class="panel-body"> ' .
                          htmlspecialchars($donnees['comment']) . '</div></div>';
                  }
-
-
-
 
 
                  $reponse->closeCursor();
 
                  echo '<div/>';
         ?>
-
-        <div class="container">
-            <h2>Panel Group</h2>
-            <p>The panel-group class clears the bottom-margin. Try to remove the class and see what happens.</p>
-            <div class="panel-group">
-                <div class="panel panel-default">
-                    <div class="panel-heading">Panel Header</div>
-                    <div class="panel-body">Panel Content</div>
-                </div>
-                <div class="panel panel-default">
-                    <div class="panel-heading">Panel Header</div>
-                    <div class="panel-body">Panel Content</div>
-                </div>
-                <div class="panel panel-default">
-                    <div class="panel-heading">Panel Header</div>
-                    <div class="panel-body">Panel Content</div>
-                </div>
-            </div>
-        </div>
 
     </div>
 
