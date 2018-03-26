@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
 <!-- Bootstrap core CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
 <!-- Custom styles for this template -->
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
@@ -19,6 +19,27 @@
 <link rel="stylesheet" href="css/NSgallery.css">
 
     <title>Galerie</title>
+
+    <?php
+
+    $gallery = $_GET['id'];
+
+    // Connexion à la base de données
+    try
+
+    {
+                $bdd = new PDO('mysql:host=nsimiccovusimic.mysql.db;
+                dbname=nsimiccovusimic;charset=utf8', 'nsimiccovusimic', 'Cvecara1');
+
+//        $bdd = new PDO('mysql:host=localhost;dbname=phpgallery;charset=utf8', 'root', '');
+    }
+
+    catch(Exception $e)
+
+    {
+        die('Erreur : '.$e->getMessage());
+    }
+    ?>
 
     <!--
     
@@ -79,10 +100,33 @@
             lightbox_display('photos/' . $folder_path . '/', 'lightbox[images]');  
             
             ?>
-
-
-
         </div>
+
+
+
+
+        <?php
+        // Récupération des 10 derniers messages
+        $reponse = $bdd->query('SELECT pseudo, dateofcomment, comment FROM comment WHERE gallery ="'. $gallery . '" ORDER BY ID DESC LIMIT 0, 10');
+
+                 // Affichage de chaque message (toutes les données sont protégées par htmlspecialchars)
+
+                 echo '<div class="panel-group">';
+
+                 while ($donnees = $reponse->fetch())
+                 {
+                     echo '<div class="panel panel-default"><div class="panel-heading">' .
+                         htmlspecialchars($donnees['pseudo']) . ' : <div style="float:right;">' . $donnees['dateofcomment'] .
+                         ' </div></div><div class="panel-body"> ' .
+                         htmlspecialchars($donnees['comment']) . '</div></div>';
+                 }
+
+
+                 $reponse->closeCursor();
+
+                 echo '<div/>';
+        ?>
+
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
