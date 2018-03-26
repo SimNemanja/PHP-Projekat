@@ -22,6 +22,7 @@
 
     <?php
 
+    $nom = $_GET['nom'];
     $gallery = $_GET['id'];
 
     // Connexion à la base de données
@@ -131,7 +132,7 @@
             <div class="panel panel-default">
                 <div class="panel panel-heading">
                     <div class="form-group ">
-                        <form action="minichat_post.php?id=<?php echo $gallery ?>" method="post" >
+                        <form action="minichat_post.php?nom=<?php echo $nom ?>&id=<?php echo $gallery ?>" method="post" >
     <p>
         <label for="pseudo">Votre nom </label> : <br />
         <input type="text" name="pseudo" class="form-control" id="pseudo" /><br />
