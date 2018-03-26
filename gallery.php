@@ -22,14 +22,15 @@
 
     <?php
 
-//    $Gallery = $_GET[id];
-    $Gallery = 10;
+    $gallery = $_GET['id'];
 
     // Connexion à la base de données
     try
 
     {
-                $bdd = new PDO('mysql:host=nsimiccovusimic.mysql.db;dbname=nsimiccovusimic;charset=utf8', 'nsimiccovusimic', 'Cvecara1');
+                $bdd = new PDO('mysql:host=nsimiccovusimic.mysql.db;
+                dbname=nsimiccovusimic;charset=utf8', 'nsimiccovusimic', 'Cvecara1');
+
 //        $bdd = new PDO('mysql:host=localhost;dbname=phpgallery;charset=utf8', 'root', '');
     }
 
@@ -106,7 +107,7 @@
 
         <?php
         // Récupération des 10 derniers messages
-        $reponse = $bdd->query('SELECT pseudo, dateofcomment, comment FROM comment WHERE gallery = 10 ORDER BY ID DESC LIMIT 0, 10');
+        $reponse = $bdd->query('SELECT pseudo, dateofcomment, comment FROM comment WHERE gallery ="'. $gallery . '" ORDER BY ID DESC LIMIT 0, 10');
 
                  // Affichage de chaque message (toutes les données sont protégées par htmlspecialchars)
 
