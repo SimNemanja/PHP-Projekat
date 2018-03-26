@@ -16,7 +16,14 @@
 
 <!-- Custom styles for this template -->
 <link rel="stylesheet" href="css/NSgallery.css">
-    
+
+
+<!-- TODO add database
+<!-- TODO add comments
+<!-- TODO add users
+
+ -->
+
 <style>
     
 
