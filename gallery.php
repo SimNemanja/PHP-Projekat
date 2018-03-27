@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,28 +17,14 @@
     <link rel="stylesheet" href="css/justifiedGallery.css" />
     <link rel="stylesheet" href="css/NSgallery.css">
 
-    <title>Galerie</title>
+    <title>Nemanja Simic Gallery</title>
 
     <?php
 
     $nom = $_GET['nom'];
     $gallery = $_GET['id'];
+    include 'connect.php';
 
-    // Connexion à la base de données
-    try
-
-    {
-                $bdd = new PDO('mysql:host=nsimiccovusimic.mysql.db;
-                dbname=nsimiccovusimic;charset=utf8', 'nsimiccovusimic', 'Cvecara1');
-
-//        $bdd = new PDO('mysql:host=localhost;dbname=phpgallery;charset=utf8', 'root', '');
-    }
-
-    catch(Exception $e)
-
-    {
-        die('Erreur : '.$e->getMessage());
-    }
     ?>
 
     <!--
@@ -49,6 +34,8 @@
 -->
 
     <style>
+
+<?php include 'gtag.js'; ?>
 
         .starter-template {
             padding: 3rem 1.5rem;
@@ -76,7 +63,6 @@
     </style>
 
 </head>
-
 <body>
 
 <?php include 'navbar.php';    ?>

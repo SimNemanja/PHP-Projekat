@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
-<title>Nemanja Simic, Architecte - CV</title>
+<head>
+<title>Nemanja Simic CV, Gallery</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -25,7 +26,8 @@
  -->
 
 <style>
-    
+
+    <?php include 'gtag.js'; ?>
 
     .starter-template {
         padding: 3rem 1.5rem;
@@ -52,6 +54,11 @@
     
 </style>
 
+
+
+    <?php include 'gtag.js'; ?>
+
+</head>
 <body>
     <div>
         <?php include("navbar.php"); ?>

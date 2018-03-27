@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,13 +17,15 @@
     <link rel="stylesheet" href="css/justifiedGallery.css" />
     <link rel="stylesheet" href="css/NSgallery.css">
 
-    <title>Envoyer un mail</title>
+    <title>Nemanja Simic - Cotactez nous</title>
 
 
     <style>
+
     </style>
 
-    <head>
+        <?php include 'gtag.js'; ?>
+
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <style>
             body {
@@ -65,8 +66,8 @@
         </style>
 
     </head>
-
     <body>
+
         <div>
             <?php include("navbar.php"); ?>
 
