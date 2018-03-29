@@ -17,12 +17,21 @@
     <link rel="stylesheet" href="css/justifiedGallery.css" />
     <link rel="stylesheet" href="css/NSgallery.css">
 
+    <!--   Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="js/lightbox.js"></script>
+    <script src="js/jquery.justifiedGallery.js"></script>
+
+
     <title>Nemanja Simic Gallery</title>
 
     <?php
 
     $nom = $_GET['nom'];
     $gallery = $_GET['id'];
+
+    // Connection to the Database
     include 'connect.php';
 
     ?>
@@ -35,7 +44,7 @@
 
     <style>
 
-<?php include 'gtag.js'; ?>
+        <?php include 'gtag.js'; ?>
 
         .starter-template {
             padding: 3rem 1.5rem;
@@ -89,58 +98,91 @@
         ?>
     </div>
 
-    <?php
+
+    <div class="panel-group">
+
+        <?php
 
 
-    // Récupération des 10 derniers messages
-    $reponse = $bdd->query('SELECT pseudo, dateofcomment, comment FROM comment WHERE gallery ="'. $gallery . '" ORDER BY ID DESC LIMIT 0, 10');
+        // Récupération des 10 derniers messages
+        $reponse = $bdd->query('SELECT pseudo, dateofcomment, comment FROM comment WHERE gallery ="'. $gallery . '" ORDER BY ID DESC LIMIT 0, 10');
 
-    // Affichage de chaque message (toutes les données sont protégées par htmlspecialchars)
+        // Affichage de chaque message (toutes les données sont protégées par htmlspecialchars)
 
-    echo '<div class="panel-group">';
-
-    while ($donnees = $reponse->fetch())
-    {
-        echo '<div class="panel panel-default"><strong><div class="panel-heading">' .
-            htmlspecialchars($donnees['pseudo']) . ' : <div style="float:right;">' . $donnees['dateofcomment'] .
-            ' </div></strong></div><div class="panel-body"> ' .
-            htmlspecialchars($donnees['comment']) . '</div></div>';
-    }
+        while ($donnees = $reponse->fetch())
+        {
+            echo '<div class="panel panel-default"><strong><div class="panel-heading">' .
+                htmlspecialchars($donnees['pseudo']) . ' : <div style="float:right;">' . $donnees['dateofcomment'] .
+                ' </div></strong></div><div class="panel-body"> ' .
+                htmlspecialchars($donnees['comment']) . '</div></div>';
+        }
 
 
-    $reponse->closeCursor();
+        $reponse->closeCursor();
 
-    //                 echo '<div/>';
-    ?>
+        ?>
 
-    <p>
-        <div class="panel-group">
-            <div class="panel panel-default">
-                <div class="panel panel-heading">
-                    <div class="form-group ">
-                        <form action="minichat_post.php?nom=<?php echo $nom ?>&id=<?php echo $gallery ?>" method="post" >
-    <p>
-        <label for="pseudo">Votre nom </label> : <br />
-        <input type="text" name="pseudo" class="form-control" id="pseudo" /><br />
-        <label for="comment">Laisser un commentaire </label> :<br />
-        <textarea id="comment" name="comment" placeholder="Le texte de votre commentaire.." class="form-control" rows="5"></textarea>
-        <br />
-        <input type="submit" value="Envoyer" class="btn btn-primary"/>
-    </p>
-    </form>
-</div>
-</div>
-</div>
+        <p>
+        <div class="comment-block">
+        </div>
+        </p>
+
+        <p>
+            <div class="panel-group">
+                <div class="panel panel-default">
+                    <div class="panel panel-heading">
+                        <div class="form-group ">
+                            <form action="ajax_comment.php?nom=<?php echo $nom ?>&id=<?php echo $gallery ?>" method="post" >
+        <p>
+            <label for="pseudo">Votre nom </label> : <br />
+            <input type="text" name="pseudo" class="form-control" id="pseudo" /><br />
+            <label for="comment">Laisser un commentaire </label> :<br />
+            <textarea id="comment" name="comment" placeholder="Le texte de votre commentaire.." class="form-control" rows="5"></textarea>
+            <br />
+            <input type="submit" value="Envoyer" class="btn btn-primary"/>
+        </p>
+        </form>
+        </p>
+    </div>
 </div>
 </div>
 </div>
 <p/>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
-<script src="js/lightbox.js"></script>
-<script src="js/jquery.justifiedGallery.js"></script>
+<script>
+    $(document).ready(function(){
+        var form = $('form');
+        var submit = $('#submit');
 
+        form.on('submit', function(e) {
+            // prevent default action
+            e.preventDefault();
+            // send ajax request
+            $.ajax({
+                url: 'ajax_comment.php?nom=<?php echo $nom ?>&id=<?php echo $gallery ?>',
+                type: 'POST',
+                cache: false,
+                data: form.serialize(), //form serizlize data
+                beforeSend: function(){
+                    // change submit button value text and disabled it
+                    submit.val('Submitting...').attr('disabled', 'disabled');
+                },
+                success: function(data){
+                    // Append with fadeIn see http://stackoverflow.com/a/978731
+                    var item = $(data).hide().fadeIn(800);
+                    $('.comment-block').append(item);
+
+                    // reset form and button
+                    form.trigger('reset');
+                    submit.val('Submit Comment').removeAttr('disabled');
+                },
+                error: function(e){
+                    alert(e);
+                }
+            });
+        });
+    });
+</script>
 <script>
     lightbox.option({
         'resizeDuration': 150,
@@ -158,7 +200,5 @@
         });
     });
 </script>
-
 </body>
-
 </html>

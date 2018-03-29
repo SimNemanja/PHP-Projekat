@@ -19,9 +19,9 @@
 <link rel="stylesheet" href="css/NSgallery.css">
 
 
-<!-- TODO add database
-<!-- TODO add comments
-<!-- TODO add users
+<!-- TODO add password protected page
+<!-- TODO add table with publish and deletion
+<!-- TODO add automatic navbar
 
  -->
 
