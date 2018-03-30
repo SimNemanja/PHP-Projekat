@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,29 +23,33 @@
 
     <title>Gallery Admin</title>
 
+</head>
+
+<body>
     <?php
 
     include("navbar.php"); 
+
+
+    if($_POST['password']=="password" && $_POST['username']=="admin") {
+    
     // Connection to the Database
     include 'connect.php';
-
-    ?>
-
-    <div class="container justified-gallery" style="padding: 80px;">
-        <table class="table table-striped .table-hover">
-            <thead>
-            <tr class="info">
-                <th>Nom</th>
-                <th>Date</th>
-                <th>Gallery</th>
-                <th>Comment</th>
-                <th>Supprimer</th>
-            </tr>
-            </thead>
-            <tbody>
-
-            <?php
-
+        
+echo '
+<h2>Côntrole des commentaires</h2>
+<div class="container justified-gallery" style="padding: 80px;">
+            <table class="table table-striped .table-hover">
+                <thead>
+                    <tr class="info">
+                        <th>Nom</th>
+                        <th>Date</th>
+                        <th>Gallery</th>
+                        <th>Comment</th>
+                        <th>Supprimer</th>
+                    </tr>
+                </thead>
+                <tbody>';
 
             // Récupération des 100 derniers messages
             $reponse = $bdd->query('SELECT pseudo, dateofcomment, comment, gallery FROM comment ORDER BY ID ASC LIMIT 0, 100');
@@ -63,12 +68,18 @@
 
             $reponse->closeCursor();
 
-            ?>
-    </div>
+
+    echo         '</div>';
+           
+   }
 
 
+            else {
+                           header('Location: admin.php?error=denied');
+            }
 
-    </div>
+ ?>
 
-    </body>
+</body>
+
 </html>

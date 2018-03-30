@@ -46,8 +46,9 @@
 
     <?php include 'navbar.php';    ?>
 
-    <form class="NScentered form-group" action="send.php" method="POST" enctype="multipart/form-data">
+    <form class="NScentered form-group" action="admin_login.php" method="POST" enctype="multipart/form-data">
         <div class="form-group">
+                <?php if (isset($_GET['error'])){ echo '<h3>Identifiants incorrects, essayez à nouveau</h3>';};    ?>
             <h3>Mot de pass demandé</h3>
             <h4>Veuillez entrer le mot de passe pour acceder les outils d'administration :</h4>
         </div>
@@ -57,7 +58,7 @@
         </div>
         <div class="form-group">
             <label for="pwd">Mot de passe:</label>
-            <input type="password" class="form-control" name="psw">
+            <input type="password" class="form-control" name="password">
         </div>
         <input type="submit" name="submit" value="Envoyer" class="btn btn-default">
     </form>
