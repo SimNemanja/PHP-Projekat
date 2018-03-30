@@ -37,8 +37,9 @@
     include 'connect.php';
         
 echo '
-<h2>Côntrole des commentaires</h2>
-<div class="container justified-gallery" style="padding: 80px;">
+
+<div class="container justified-gallery" style="padding: 70px;">
+<h2>Contrôle des commentaires</h2>
             <table class="table table-striped .table-hover">
                 <thead>
                     <tr class="info">
@@ -52,7 +53,12 @@ echo '
                 <tbody>';
 
             // Récupération des 100 derniers messages
-            $reponse = $bdd->query('SELECT pseudo, dateofcomment, comment, gallery FROM comment ORDER BY ID ASC LIMIT 0, 100');
+            $reponse = $bdd->query('
+            SELECT comment.ID, pseudo, dateofcomment, c_text, gallery_name 
+            FROM comment
+            INNER JOIN gallery 
+            ON comment.ID_gallery = gallery.ID
+            ORDER BY comment.ID DESC LIMIT 0, 20;');
 
             // Affichage de chaque message (toutes les données sont protégées par htmlspecialchars)
 
@@ -61,8 +67,8 @@ echo '
                 echo ' <tr><td>' .
                     htmlspecialchars($donnees['pseudo']) . '</td><td>' .
                     $donnees['dateofcomment'] . '</td><td>' .
-                    htmlspecialchars($donnees['pseudo']) . '</td><td>' .
-                    htmlspecialchars($donnees['comment']) . '</td><td><button type="button" style="display:block; float: right" class="btn btn-primary btn-sm btn-danger">Supprimer</button></td></tr>';
+                    htmlspecialchars($donnees['gallery_name']) . '</td><td>' .
+                    htmlspecialchars($donnees['c_text']) . '</td><td><button type="button" style="display:block; float: right" class="btn btn-primary btn-sm btn-danger"><i class="fa fa-trash-o" style="font-size:18px"> Supprimer</i></button></td></tr>';
             }
 
 
