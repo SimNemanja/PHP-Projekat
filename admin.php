@@ -36,6 +36,8 @@
     ?>
 
         <style>
+
+
         </style>
 
 </head>
@@ -44,27 +46,21 @@
 
     <?php include 'navbar.php';    ?>
 
-    <div class="container" style="margin-top: 15px;">
-
-<div class="panel-group NScentered">
-    <div class="panel panel-default">
-        <div class="panel panel-heading">Mot de pass demandé</div>
-        <div class="panel panel-default container">
-            <br/>
-            <br/>
-            <p>Veuillez entrer le mot de passe pour acceder les outils d'administration :</p>
-            <form action="admin.php" method="post">
-                <p>
-                    <input type="password" name="mot_de_passe" />
-                    <input type="submit" value="Valider" />
-                </p>
-            </form>
-            <p>Cette page est réservée aux administrateurs</p>
-            <br/>
+    <form class="NScentered form-group" action="send.php" method="POST" enctype="multipart/form-data">
+        <div class="form-group">
+            <h3>Mot de pass demandé</h3>
+            <h4>Veuillez entrer le mot de passe pour acceder les outils d'administration :</h4>
         </div>
-    </div>
-</div>
-</div>
+        <div class="form-group">
+            <label for="email">Nom d'utilisateur:</label>
+            <input type="text" class="form-control" name="username"><br/>
+        </div>
+        <div class="form-group">
+            <label for="pwd">Mot de passe:</label>
+            <input type="password" class="form-control" name="psw">
+        </div>
+        <input type="submit" name="submit" value="Envoyer" class="btn btn-default">
+    </form>
 
 </body>
 

@@ -71,7 +71,7 @@
         <div>
             <?php include("navbar.php"); ?>
 
-            <div class="container">
+            <div class="container NScentered">
                 <h3>Formulaire de contact</h3>
                 <form action="send.php" method="POST" enctype="multipart/form-data">
                     <label for="name">Nom</label>
@@ -98,7 +98,5 @@
         </div>
 
     </body>
-
-</head>
 
 </html>
