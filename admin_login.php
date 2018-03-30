@@ -70,7 +70,7 @@ echo '
                     htmlspecialchars($donnees['pseudo']) . '</td><td>' .
                     $donnees['dateofcomment'] . '</td><td>' .
                     htmlspecialchars($donnees['gallery_name']) . '</td><td>' .
-                    htmlspecialchars($donnees['c_text']) . '</td><td><button type="button"  id="' . $value . '" style="display:block; float: right" class="btn btn-primary btn-sm btn-danger"><i class="fa fa-trash-o" style="font-size:18px"> Supprimer</i></button></td></tr>';
+                    htmlspecialchars($donnees['c_text']) . '</td><td><button type="button"  id="' . $value . '" style="display:block; float: right" class="btn btn-primary btn-sm btn-danger delete_comment"><i class="fa fa-trash-o" style="font-size:18px"> Supprimer</i></button></td></tr>';
             }
 
 
@@ -88,6 +88,23 @@ echo '
 
  ?>
 
+        <script>
+            $(document).ready(function() {
+                $(".delete_comment").click(function() {
+                    var del_id = $(this).attr('id');
+                    $.ajax({
+                        type: 'POST',
+                        url: 'delete.php',
+                        data: 'delete_id=' + del_id,
+                        success: function(data) {
+                            //reload page
+                            location.reload();
+                        }
+                    });
+                });
+            });
+
+        </script>
 </body>
 
 </html>
