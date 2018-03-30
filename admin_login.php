@@ -64,11 +64,13 @@ echo '
 
             while ($donnees = $reponse->fetch())
             {
+                
+                $value = $donnees['ID'];
                 echo ' <tr><td>' .
                     htmlspecialchars($donnees['pseudo']) . '</td><td>' .
                     $donnees['dateofcomment'] . '</td><td>' .
                     htmlspecialchars($donnees['gallery_name']) . '</td><td>' .
-                    htmlspecialchars($donnees['c_text']) . '</td><td><button type="button" style="display:block; float: right" class="btn btn-primary btn-sm btn-danger"><i class="fa fa-trash-o" style="font-size:18px"> Supprimer</i></button></td></tr>';
+                    htmlspecialchars($donnees['c_text']) . '</td><td><button type="button"  id="' . $value . '" style="display:block; float: right" class="btn btn-primary btn-sm btn-danger"><i class="fa fa-trash-o" style="font-size:18px"> Supprimer</i></button></td></tr>';
             }
 
 
