@@ -33,43 +33,13 @@
 
     // Connection to the Database
     include 'connect.php';
-
-    ?>
-
-    <!--
     
-    To link the gallery name : use http://localhost/gallery/index.php?nom=nameOfGallery
-
--->
-
-    <style>
-
-        <?php include 'gtag.js'; ?>
-
-        .starter-template {
-            padding: 3rem 1.5rem;
-            text-align: center;
-        }
-
-        html,
-        body,
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
-            font-family: "Roboto", sans-serif;
-        }
-
-        h2 {
-            text-align: center;
-        }
-
-        #liveDemo {
-            margin-bottom: 50px;
-        }
-    </style>
+    // Connection to Google Analytics
+    include 'gtag.js'; 
+    ?>
+    
+<style>
+</style>
 
 </head>
 <body>
@@ -193,7 +163,7 @@
     jQuery(document).ready(function() {
         jQuery("#liveDemo").justifiedGallery({
             rowHeight: 120,
-            // maxRowHeight : 150,
+            maxRowHeight : "250%",
             captions: false,
             lastRow: 'justify',
             randomize: true,

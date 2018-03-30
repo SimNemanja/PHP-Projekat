@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,61 +15,57 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" media="screen" href="css/lightbox.css">
+    <link rel="stylesheet" href="css/justifiedGallery.css" />
     <link rel="stylesheet" href="css/NSgallery.css">
 
     <!--   Scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="js/lightbox.js"></script>
+    <script src="js/jquery.justifiedGallery.js"></script>
 
-    <title>Gallery Admin</title>
+
+    <title>Nemanja Simic Gallery</title>
 
     <?php
-
-    include("navbar.php"); 
     // Connection to the Database
     include 'connect.php';
-
+    
+    // Connection to Google Analytics
+    include 'gtag.js'; 
     ?>
 
-    <div class="container justified-gallery" style="padding: 80px;">
-        <table class="table table-striped .table-hover">
-            <thead>
-            <tr class="info">
-                <th>Nom</th>
-                <th>Date</th>
-                <th>Gallery</th>
-                <th>Comment</th>
-                <th>Supprimer</th>
-            </tr>
-            </thead>
-            <tbody>
+        <style>
+        </style>
 
-            <?php
+</head>
 
+<body>
 
-            // Récupération des 100 derniers messages
-            $reponse = $bdd->query('SELECT pseudo, dateofcomment, comment, gallery FROM comment ORDER BY ID ASC LIMIT 0, 100');
+    <?php include 'navbar.php';    ?>
 
-            // Affichage de chaque message (toutes les données sont protégées par htmlspecialchars)
+    <div class="container" style="margin-top: 15px;">
 
-            while ($donnees = $reponse->fetch())
-            {
-                echo ' <tr><td>' .
-                    htmlspecialchars($donnees['pseudo']) . '</td><td>' .
-                    $donnees['dateofcomment'] . '</td><td>' .
-                    htmlspecialchars($donnees['pseudo']) . '</td><td>' .
-                    htmlspecialchars($donnees['comment']) . '</td><td><button type="button" style="display:block; float: right" class="btn btn-primary btn-sm btn-danger">Supprimer</button></td></tr>';
-            }
-
-
-            $reponse->closeCursor();
-
-            ?>
+<div class="panel-group NScentered">
+    <div class="panel panel-default">
+        <div class="panel panel-heading">Mot de pass demandé</div>
+        <div class="panel panel-default container">
+            <br/>
+            <br/>
+            <p>Veuillez entrer le mot de passe pour acceder les outils d'administration :</p>
+            <form action="admin.php" method="post">
+                <p>
+                    <input type="password" name="mot_de_passe" />
+                    <input type="submit" value="Valider" />
+                </p>
+            </form>
+            <p>Cette page est réservée aux administrateurs</p>
+            <br/>
+        </div>
     </div>
+</div>
+</div>
 
+</body>
 
-
-    </div>
-
-    </body>
 </html>

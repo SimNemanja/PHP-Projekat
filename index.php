@@ -22,41 +22,12 @@
 <!-- TODO add password protected page
 <!-- TODO add table with publish and deletion
 <!-- TODO add automatic navbar
-
  -->
-
-<style>
-
-    <?php include 'gtag.js'; ?>
-
-    .starter-template {
-        padding: 3rem 1.5rem;
-        text-align: center;
-    }
-
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-        font-family: "Roboto", sans-serif;
-    }
-
-    h2 {
-        color: white;
-    }
-
-    .certificat {
-        font-size: 1.2em;
-    }
-
     
+<?php include 'gtag.js'; ?>
+    
+<style>
 </style>
-
-
-
-    <?php include 'gtag.js'; ?>
 
 </head>
 <body>
