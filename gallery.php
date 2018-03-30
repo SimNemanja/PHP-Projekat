@@ -75,7 +75,7 @@
 
 
         // Récupération des 10 derniers messages
-        $reponse = $bdd->query('SELECT pseudo, dateofcomment, comment FROM comment WHERE gallery ="'. $gallery . '" ORDER BY ID DESC LIMIT 0, 10');
+        $reponse = $bdd->query('SELECT pseudo, dateofcomment, c_text FROM comment WHERE ID_gallery ="'. $gallery . '" ORDER BY ID DESC LIMIT 0, 10');
 
         // Affichage de chaque message (toutes les données sont protégées par htmlspecialchars)
 
@@ -84,7 +84,7 @@
             echo '<div class="panel panel-default"><strong><div class="panel-heading">' .
                 htmlspecialchars($donnees['pseudo']) . ' : <div style="float:right;">' . $donnees['dateofcomment'] .
                 ' </div></strong></div><div class="panel-body"> ' .
-                htmlspecialchars($donnees['comment']) . '</div></div>';
+                htmlspecialchars($donnees['c_text']) . '</div></div>';
         }
 
 
