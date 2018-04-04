@@ -41,15 +41,18 @@
         </div>
     </div>
 
-    <div class="dropdown-N">
-        <button class="dropbtn-N">Europe
+        <div class="dropdown-N">
+        <button class="dropbtn-N">Allemagne
       <i class="fa fa-caret-down"></i>
     </button>
         <div class="dropdown-N-content">
-            <a href="gallery.php?nom=03_belgium&id=7">Belgique</a>
-            <a href="gallery.php?nom=07_amsterdam&id=8">Amsterdam</a>
+            <a href="gallery.php?nom=14_Bavaria&id=14">Bavière</a>
+            <a href="gallery.php?nom=15_Alpes&id=15">Les Alpes</a>
         </div>
     </div>
+    
+            <a href="gallery.php?nom=03_belgium&id=7">Belgique</a>
+            <a href="gallery.php?nom=07_amsterdam&id=8">Pays-Bas</a>
 
     <a href="mailform.php" style="float: right"> <i class="fa fa-envelope-o"></i> Contact</a>
 
