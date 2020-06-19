@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -37,41 +38,42 @@
     // Connection to Google Analytics
     include 'gtag.js'; 
     ?>
-    
-<style>
-</style>
+
+        <style>
+        </style>
 
 </head>
+
 <body>
 
-<?php include 'navbar.php';    ?>
+    <?php include 'navbar.php';    ?>
 
-<div class="container" style="margin-top: 15px;">
+    <div class="container" style="margin-top: 15px;">
 
 
-    <h2>
-        <?php
+        <h2>
+            <?php
         $title = substr($_GET['nom'], 3);
         echo (ucfirst($title));
         ?>
-    </h2>
+        </h2>
 
-    <div id="liveDemo" class="container justified-gallery" style="margin-left: 10px;">
+        <div id="liveDemo" class="container justified-gallery" style="margin-left: 10px;">
 
 
-        <?php
+            <?php
 
         $folder_path = $_GET['nom'];
         include 'lightbox_display_function.php';
         lightbox_display('photos/' . $folder_path . '/', 'lightbox[images]');
 
         ?>
-    </div>
+        </div>
 
 
-    <div class="panel-group">
+        <div class="panel-group">
 
-        <?php
+            <?php
 
 
         // Récupération des 10 derniers messages
@@ -92,83 +94,85 @@
 
         ?>
 
-        <p>
-        <div class="comment-block">
-        </div>
-        </p>
+                <p>
+                    <div class="comment-block">
+                    </div>
+                </p>
 
-        <p>
-            <div class="panel-group">
-                <div class="panel panel-default">
-                    <div class="panel panel-heading">
-                        <div class="form-group ">
-                            <form action="ajax_comment.php?nom=<?php echo $nom ?>&id=<?php echo $gallery ?>" method="post" >
-        <p>
-            <label for="pseudo">Votre nom </label> : <br />
-            <input type="text" name="pseudo" class="form-control" id="pseudo" /><br />
-            <label for="comment">Laisser un commentaire </label> :<br />
-            <textarea id="comment" name="comment" placeholder="Le texte de votre commentaire.." class="form-control" rows="5"></textarea>
-            <br />
-            <input type="submit" value="Envoyer" class="btn btn-primary"/>
-        </p>
-        </form>
-        </p>
-    </div>
-</div>
-</div>
-</div>
-<p/>
+                <p>
+                    <div class="panel-group">
+                        <div class="panel panel-default">
+                            <div class="panel panel-heading">
+                                <div class="form-group ">
+                                    <form action="ajax_comment.php?nom=<?php echo $nom ?>&id=<?php echo $gallery ?>" method="post">
+                                        <p>
+                                            <label for="pseudo">Votre nom </label> : <br />
+                                            <input type="text" name="pseudo" class="form-control" id="pseudo" /><br />
+                                            <label for="comment">Laisser un commentaire </label> :<br />
+                                            <textarea id="comment" name="comment" placeholder="Le texte de votre commentaire.." class="form-control" rows="5"></textarea>
+                                            <br />
+                                            <input id="id" name="id" type="hidden" value="<?php echo $gallery ?>">
+                                            <input type="submit" value="Envoyer" class="btn btn-primary" />
+                                        </p>
+                                    </form>
+                </p>
+                </div>
+                </div>
+                </div>
+                </div>
+                <p/>
 
-<script>
-    $(document).ready(function(){
-        var form = $('form');
-        var submit = $('#submit');
+                <script>
+                    $(document).ready(function() {
+                        var form = $('form');
+                        var submit = $('#submit');
 
-        form.on('submit', function(e) {
-            // prevent default action
-            e.preventDefault();
-            // send ajax request
-            $.ajax({
-                url: 'ajax_comment.php?nom=<?php echo $nom ?>&id=<?php echo $gallery ?>',
-                type: 'POST',
-                cache: false,
-                data: form.serialize(), //form serizlize data
-                beforeSend: function(){
-                    // change submit button value text and disabled it
-                    submit.val('Submitting...').attr('disabled', 'disabled');
-                },
-                success: function(data){
-                    // Append with fadeIn see http://stackoverflow.com/a/978731
-                    var item = $(data).hide().fadeIn(800);
-                    $('.comment-block').append(item);
+                        form.on('submit', function(e) {
+                            // prevent default action
+                            e.preventDefault();
+                            // send ajax request
+                            $.ajax({
+                                url: 'ajax_comment.php?nom=<?php echo $nom ?>&id=<?php echo $gallery ?>',
+                                type: 'POST',
+                                cache: false,
+                                data: form.serialize(), //form serizlize data
+                                beforeSend: function() {
+                                    // change submit button value text and disabled it
+                                    submit.val('Submitting...').attr('disabled', 'disabled');
+                                },
+                                success: function(data) {
+                                    // Append with fadeIn see http://stackoverflow.com/a/978731
+                                    var item = $(data).hide().fadeIn(800);
+                                    $('.comment-block').append(item);
 
-                    // reset form and button
-                    form.trigger('reset');
-                    submit.val('Submit Comment').removeAttr('disabled');
-                },
-                error: function(e){
-                    alert(e);
-                }
-            });
-        });
-    });
-</script>
-<script>
-    lightbox.option({
-        'resizeDuration': 150,
-        'wrapAround': true
-    })
-</script>
-<script>
-    jQuery(document).ready(function() {
-        jQuery("#liveDemo").justifiedGallery({
-            rowHeight: 120,
-            maxRowHeight : "250%",
-            captions: false,
-            lastRow: 'justify',
-            randomize: true,
-        });
-    });
-</script>
+                                    // reset form and button
+                                    form.trigger('reset');
+                                    submit.val('Submit Comment').removeAttr('disabled');
+                                },
+                                error: function(e) {
+                                    alert(e);
+                                }
+                            });
+                        });
+                    });
+                </script>
+                <script>
+                    lightbox.option({
+                        'resizeDuration': 150,
+                        'wrapAround': true
+                    })
+                </script>
+                <script>
+                    jQuery(document).ready(function() {
+                        jQuery("#liveDemo").justifiedGallery({
+                            rowHeight: 120,
+                            maxRowHeight: "250%",
+                            captions: false,
+                            lastRow: 'justify',
+                            randomize: true,
+                        });
+                    });
+                </script>
 </body>
+
 </html>

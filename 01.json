@@ -1,0 +1,18 @@
+{
+  "$jason": {
+    "head": {
+      "title": "nsimic",
+      "actions": {
+        "$foreground": {
+          "type": "$reload"
+        }
+      }
+    },
+        "body": {
+            "background": {
+                "type": "html",
+                "url": "http://www.nsimic.com"
+            }
+        }
+    }
+}

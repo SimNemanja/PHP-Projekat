@@ -1,4 +1,4 @@
-<div class="navbar-N">
+﻿<div class="navbar-N">
 
     <a href="http://www.nsimic.com/">Nemanja SIMIC</a>
     <!--    <a href="/cv.php">CV</a>-->
@@ -28,6 +28,8 @@
             <a href="gallery.php?nom=06_strasbourg&id=4">Strasbourg</a>
             <a href="gallery.php?nom=09_nantes&id=5">Nantes</a>
             <a href="gallery.php?nom=10_Saint Malo&id=6">Saint Malo</a>
+            <a href="gallery.php?nom=16_Annecy&id=17">Annecy</a>
+            <a href="gallery.php?nom=18_Baie de Somme&id=18">Baie de Somme</a>
         </div>
     </div>
 
@@ -52,6 +54,7 @@
     </div>
     
             <a href="gallery.php?nom=03_belgium&id=7">Belgique</a>
+                <a href="gallery.php?nom=17_Tunisie&id=16">Tunisie</a>
             <a href="gallery.php?nom=07_amsterdam&id=8">Pays-Bas</a>
 
     <a href="mailform.php" style="float: right"> <i class="fa fa-envelope-o"></i> Contact</a>

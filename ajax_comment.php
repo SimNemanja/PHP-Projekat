@@ -7,8 +7,14 @@ if (isset( $_SERVER['HTTP_X_REQUESTED_WITH'] )):
 include 'connect.php';
 
 // Insertion du message à l'aide d'une requête préparée
-$req = $bdd->prepare('INSERT INTO comment (pseudo, comment, gallery) VALUES(?, ?, ?)');
-$req->execute(array($_POST['pseudo'], $_POST['comment'],$_GET['id']));
+$req = $bdd->prepare('INSERT INTO comment (pseudo, 	c_text, ID_gallery) VALUES(?, ?, ?)');
+$req->execute(array(
+    
+    $_POST['pseudo'], 
+    $_POST['comment'],
+    $_POST['id']
+
+));
 
     ?>
 
